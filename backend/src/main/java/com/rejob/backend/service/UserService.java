@@ -1,11 +1,13 @@
 package com.rejob.backend.service;
 
 import ch.qos.logback.core.spi.ErrorCodes;
+import com.rejob.backend.dto.request.UserInfoRequest;
 import com.rejob.backend.dto.request.UserInfoUpdateRequest;
 import com.rejob.backend.dto.request.UserRegisterRequest;
 import com.rejob.backend.dto.response.UserInfoResponse;
 import com.rejob.backend.entity.User;
 import com.rejob.backend.entity.UserInfo;
+import com.rejob.backend.enums.Gender;
 import com.rejob.backend.exception.CustomException;
 import com.rejob.backend.repository.UserInfoRepository;
 import com.rejob.backend.repository.UserRepository;
@@ -14,6 +16,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
 import java.util.Optional;
 
 @Service
@@ -62,5 +65,35 @@ public class UserService {
         }
 
         info.updateInfo(request.getName(), request.getBirth(), request.getGender(), request.getJob_experience());
+    }
+
+    @Transactional
+    public UserInfoResponse saveUserInfo(UserInfoRequest request, Long userId) {
+        UserInfo info = new UserInfo();
+
+        // 회원인 경우 User 설정
+        if(userId != null) {
+            User user = userRepository.findByUserId(userId);
+            if(user == null) {
+                throw new CustomException("해당 사용자가 존재하지 않습니다.");
+            }
+
+            info.setUser(user);
+
+            // 중복 방지: 이미 등록된 경우 예외
+            if(userInfoRepository.existsByUser_UserId(userId)) {
+                throw new CustomException("이미 정보가 등록되어 있습니다.");
+            }
+        }
+
+        // 필수 정보 저장
+        info.setName(request.getName());
+        info.setBirth(LocalDate.parse(request.getBirth()));
+        info.setGender(Gender.valueOf(request.getGender()));
+
+        info.setJobExperience(request.getJob_experience());
+
+        UserInfo saved = userInfoRepository.save(info);
+        return new UserInfoResponse(saved);
     }
 }

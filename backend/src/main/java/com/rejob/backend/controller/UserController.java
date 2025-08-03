@@ -1,6 +1,7 @@
 package com.rejob.backend.controller;
 
 import com.rejob.backend.common.ResponseData;
+import com.rejob.backend.dto.request.UserInfoRequest;
 import com.rejob.backend.dto.request.UserInfoUpdateRequest;
 import com.rejob.backend.dto.request.UserRegisterRequest;
 import com.rejob.backend.dto.response.UserInfoResponse;
@@ -42,5 +43,16 @@ public class UserController {
         userService.updateUserInfo(userId, request);
 
         return ResponseEntity.ok(new ResponseData<>(200, "마이페이지 - 개인정보 수정 성공", null));
+    }
+
+    // 필수 정보 저장
+    @PostMapping("/info")
+    public ResponseEntity<ResponseData<UserInfoResponse>> createUserInfo(HttpSession session, @RequestBody UserInfoRequest request) {
+
+        // 로그인 여부 체크
+        Long userId = (Long) session.getAttribute("user_id");
+
+        UserInfoResponse saved = userService.saveUserInfo(request, userId);
+        return ResponseEntity.ok(new ResponseData<>(201, "필수 정보 입력 성공", saved));
     }
 }
