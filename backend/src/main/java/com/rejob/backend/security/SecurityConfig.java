@@ -33,8 +33,26 @@ public class SecurityConfig {
                 .sessionManagement(session -> session
                         .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/users/register", "/api/users/login", "/api/users/info").permitAll()
-                        .anyRequest().authenticated())
+                        // 로그인 없이 접근 가능한 URL
+                        .requestMatchers(
+                                "/api/users/register",
+                                "/api/users/login",
+                                "/api/users/info",
+                                "/api/jobs/**",               // 전체 일자리 목록 등
+                                "/api/resumes"                // 비회원용 이력서 생성
+                        ).permitAll()
+
+                        // 로그인 필요 (마이페이지 관련 등)
+                        .requestMatchers(
+                                "/api/users/me",
+                                "/api/resumes/**",
+                                "/api/applications",
+                                "/api/users/password"
+                        ).authenticated()
+
+                        // 나머지는 모두 허용
+                        .anyRequest().permitAll()
+                )
                 .formLogin(form -> form.disable())
                 .addFilterBefore(jsonLoginFilter(), UsernamePasswordAuthenticationFilter.class)
                 .logout(logout -> logout
