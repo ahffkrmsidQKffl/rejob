@@ -1,0 +1,93 @@
+.MyPageResume-UI {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+}
+
+.MyPageResume-UI .overlap-wrapper {
+  height: 250px;
+  width: 210px;
+  margin-bottom: 50px;
+}
+
+.MyPageResume-UI .overlap-group-2 {
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 10px 8px 20px 5px #00000040;
+  height: 250px;
+  position: relative;
+  width: 200px;
+}
+
+.MyPageResume-UI .text-wrapper-10 {
+  color: #000000;
+  font-family: "Noto Sans", Helvetica;
+  font-size: 20px;
+  font-weight: 600;
+  left: 21px;
+  letter-spacing: 0;
+  line-height: 60px;
+  white-space: nowrap;
+}
+
+.MyPageResume-UI .text-wrapper-11 {
+  color: #000000;
+  font-family: "Noto Sans", Helvetica;
+  font-size: 15px;
+  font-weight: 500;
+  left: 21px;
+  letter-spacing: 0;
+  line-height: 30px;
+  position: absolute;
+  top: 67px;
+  white-space: nowrap;
+}
+
+.MyPageResume-UI .text-wrapper-12 {
+  color: #000000;
+  font-family: "Noto Sans", Helvetica;
+  font-size: 15px;
+  font-weight: 500;
+  left: 21px;
+  letter-spacing: 0;
+  line-height: 30px;
+  position: absolute;
+  top: 102px;
+  white-space: nowrap;
+}
+
+.MyPageResume-UI .overlap-group-3 {
+  background-color: #ffd95a;
+  border-radius: 10px;
+  height: 50px;
+  left: 15px;
+  position: absolute;
+  top: 185px;
+  width: 170px;
+}
+
+.MyPageResume-UI .text-wrapper-13 {
+  color: #000000;
+  font-family: "Noto Sans", Helvetica;
+  font-size: 17px;
+  font-weight: 600;
+  left: 43px;
+  letter-spacing: 0;
+  line-height: 30px;
+  position: absolute;
+  top: 10px;
+  white-space: nowrap;
+}
+
+.MyPageResume-UI .text-wrapper-14 {
+  color: #000000;
+  font-family: "Noto Sans", Helvetica;
+  font-size: 15px;
+  font-weight: 500;
+  left: 21px;
+  letter-spacing: 0;
+  line-height: 30px;
+  position: absolute;
+  top: 137px;
+  white-space: nowrap;
+}

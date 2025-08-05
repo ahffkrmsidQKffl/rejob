@@ -1,0 +1,300 @@
+.MyPage-UI {
+  background-color: #ffffff;
+  height: 100%;
+  min-height: 100vh;
+}
+
+.MyPage-UI .div {
+  background-color: #ffffff;
+  display: flex;
+  gap : 5vw;
+}
+
+.MyPage-UI .divformypageleft {
+    margin-top: 50px;
+    position: fixed;
+    left : 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap : 50px;
+    width : 33vw;
+}
+
+.MyPage-UI .divformypageright {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap : 25px;
+    width : 66vw;
+    left : clamp(450px, 25vw, 1000px);
+    margin-right: 5vw;
+}
+
+
+.MyPage-UI .line {
+
+  height: 750px;
+  width: 2px;
+  position: fixed;
+  left : 33vw;
+  top : 200px;
+  margin-right: 50px;
+}
+
+
+.MyPage-UI .overlap {
+  background-color: #f0f0f0;
+  border-radius: 15px;
+  height: 100px;
+  width: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.MyPage-UI .text-wrapper {
+  color: #333333;
+  font-family: "Noto Sans", Helvetica;
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: 0.60px;
+  line-height: 60px;
+  white-space: nowrap;
+}
+
+.MyPage-UI .overlap-group {
+  background-color: #ffd95a;
+  border-radius: 15px;
+  height: 100px;
+  width: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.MyPage-UI .text-wrapper-2 {
+  color: #333333;
+  font-family: "Noto Sans", Helvetica;
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: 0.60px;
+  line-height: 60px;
+  white-space: nowrap;
+}
+
+.MyPage-UI .div-wrapper {
+  background-color: #f0f0f0;
+  border-radius: 15px;
+  height: 100px;
+  width: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.MyPage-UI .text-wrapper-3 {
+  color: #333333;
+  font-family: "Noto Sans", Helvetica;
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: 0.60px;
+  line-height: 60px;
+  white-space: nowrap;
+}
+
+.MyPage-UI .text-wrapper-9 {
+  color: #333333;
+  font-family: "Noto Sans", Helvetica;
+  font-size: 25px;
+  font-weight: 900;
+  left: 19px;
+  letter-spacing: 0;
+  line-height: 45px;
+  position: absolute;
+  top: 11px;
+  white-space: nowrap;
+}
+
+.MyPage-UI .overlap-4 {
+  height: 109px;
+  width: 327px;
+}
+
+.MyPage-UI .group {
+  height: 105px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 327px;
+}
+
+.MyPage-UI .overlap-group-2 {
+  height: 105px;
+  position: relative;
+  width: 325px;
+}
+
+.MyPage-UI .rectangle {
+  background-color: #ffffff;
+  border: 2px solid;
+  border-color: #e0e0e0;
+  height: 50px;
+  left: 0;
+  position: absolute;
+  top: 55px;
+  width: 325px;
+}
+
+.MyPage-UI .text-wrapper-10 {
+  color: #333333;
+  font-family: "Noto Sans", Helvetica;
+  font-size: 25px;
+  font-weight: 600;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 60px;
+  position: absolute;
+  top: 0;
+  white-space: nowrap;
+}
+
+.MyPage-UI .text-wrapper-11 {
+  color: #808080;
+  font-family: "Noto Sans", Helvetica;
+  font-size: 17px;
+  font-weight: 600;
+  left: 12px;
+  letter-spacing: 0.34px;
+  line-height: 60px;
+  position: absolute;
+  top: 49px;
+  white-space: nowrap;
+}
+
+.MyPage-UI .group-2 {
+  height: 116px;
+  width: 226px;
+  position: relative;
+}
+
+.MyPage-UI .text-wrapper-12 {
+  color: #333333;
+  font-family: "Noto Sans", Helvetica;
+  font-size: 18px;
+  font-weight: 600;
+  left: 54px;
+  letter-spacing: 0;
+  line-height: 60px;
+  position: absolute;
+  top: 56px;
+  white-space: nowrap;
+}
+
+.MyPage-UI .text-wrapper-13 {
+  color: #333333;
+  font-family: "Noto Sans", Helvetica;
+  font-size: 18px;
+  font-weight: 600;
+  left: 186px;
+  letter-spacing: 0;
+  line-height: 60px;
+  position: absolute;
+  top: 56px;
+  white-space: nowrap;
+}
+
+.MyPage-UI .rectangle-2 {
+  background-color: #ffffff;
+  border: 2px solid;
+  border-color: #e0e0e0;
+  height: 40px;
+  left: 0;
+  position: absolute;
+  top: 67px;
+  width: 40px;
+}
+
+.MyPage-UI .rectangle-3 {
+  background-color: #ffffff;
+  border: 2px solid;
+  border-color: #e0e0e0;
+  height: 40px;
+  left: 132px;
+  position: absolute;
+  top: 67px;
+  width: 40px;
+}
+
+.MyPage-UI .group-3 {
+  height: 260px;
+  width: 702px;
+  position: relative;
+}
+
+.MyPage-UI .rectangle-4 {
+  background-color: #ffffff;
+  border: 2px solid;
+  border-color: #e0e0e0;
+  height: 200px;
+  left: 0;
+  position: absolute;
+  top: 60px;
+  width: 700px;
+}
+
+.MyPage-UI .overlap-wrapper {
+  height: 115px;
+  width: 329px;
+}
+
+.MyPage-UI .overlap-5 {
+  height: 115px;
+  position: relative;
+  width: 325px;
+}
+
+.MyPage-UI .rectangle-5 {
+  background-color: #ffffff;
+  border: 2px solid;
+  border-color: #e0e0e0;
+  height: 50px;
+  left: 0;
+  position: absolute;
+  top: 60px;
+  width: 325px;
+}
+
+.MyPage-UI .text-wrapper-14 {
+  color: #808080;
+  font-family: "Noto Sans", Helvetica;
+  font-size: 17px;
+  font-weight: 600;
+  left: 12px;
+  letter-spacing: 0;
+  line-height: 60px;
+  position: absolute;
+  top: 55px;
+  white-space: nowrap;
+}
+
+.MyPage-UI .overlap-6 {
+  background-color: #ffd95a;
+  border-radius: 10px;
+  height: 70px;
+  width: 700px;
+  position: relative;
+}
+
+.MyPage-UI .text-wrapper-15 {
+  color: #000000;
+  font-family: "Noto Sans", Helvetica;
+  font-size: 25px;
+  font-weight: 600;
+  left: 304px;
+  letter-spacing: 0;
+  line-height: 60px;
+  position: absolute;
+  top: 4px;
+  white-space: nowrap;
+}

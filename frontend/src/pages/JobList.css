@@ -1,0 +1,207 @@
+.JobList-UI {
+  background-color: #ffffff;
+  height: 100%;
+  min-height: 100vh;
+}
+
+.JobList-UI .div {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap : 25px;
+}
+
+.JobList-UI .wrapperfor5and9 {
+  display: flex;
+  gap : 15px;
+  width: 1144px;
+}
+
+.JobList-UI .overlap-group-groupper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;              
+  gap: 100px;                              
+
+}
+
+.JobList-UI .overlap-group {
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 10px 8px 20px 5px #00000040;
+  height: 250px;
+  width: 320px;
+  position: relative;
+}
+
+.JobList-UI .text-wrapper {
+  color: #333333;
+  font-family: "Noto Sans", Helvetica;
+  font-size: 30px;
+  font-weight: 600;
+  left: 26px;
+  letter-spacing: 0;
+  line-height: 30px;
+  position: absolute;
+  top: 29px;
+  white-space: nowrap;
+}
+
+.JobList-UI .element {
+  color: #545454;
+  font-family: "Noto Sans", Helvetica;
+  font-size: 17px;
+  font-weight: 600;
+  left: 26px;
+  letter-spacing: 0;
+  line-height: 30px;
+  position: absolute;
+  top: 79px;
+  text-align: left;
+  white-space: pre-line;  /* 줄바꿈 유지 (ex. \n) */
+}
+
+.JobList-UI .overlap {
+  background-color: #ffd95a;
+  border-radius: 10px;
+  height: 50px;
+  left: 25px;
+  position: absolute;
+  top: 179px;
+  width: 270px;
+}
+
+.JobList-UI .text-wrapper-2 {
+  color: #000000;
+  font-family: "Noto Sans", Helvetica;
+  font-size: 19px;
+  font-weight: 600;
+  left: 88px;
+  letter-spacing: 0;
+  line-height: 30px;
+  position: absolute;
+  top: 9px;
+  white-space: nowrap;
+}
+
+.JobList-UI .overlap-5 {
+  border: 2px solid;
+  border-color: #808080;
+  border-radius: 40px;
+  height: 120px;
+  width: 960px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.JobList-UI .text-wrapper-10 {
+  color: #808080;
+  font-family: "Noto Sans", Helvetica;
+  font-size: 27px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 30px;
+  white-space: nowrap;
+}
+
+.JobList-UI .overlap-6 {
+  border: 2px solid;
+  border-color: #808080;
+  border-radius: 20px;
+  height: 150px;
+  position: relative;
+  width: 1140px;
+}
+
+.JobList-UI .text-wrapper-11 {
+  color: #333333;
+  font-family: "Noto Sans", Helvetica;
+  font-size: 22px;
+  font-weight: 600;
+  left: 29px;
+  letter-spacing: 0;
+  line-height: 60px;
+  position: absolute;
+  top: 3px;
+  white-space: nowrap;
+}
+
+.JobList-UI .overlap-7 {
+  height: 60px;
+  left: 31px;
+  position: absolute;
+  top: 65px;
+  width: 100px;
+}
+
+.JobList-UI .keyboard-arrow-down-instance {
+  left: 63px !important;
+  top: 19px !important;
+}
+
+.JobList-UI .rectangle {
+  border: 1px solid;
+  border-color: #333333;
+  border-radius: 5px;
+  height: 40px;
+  left: 0;
+  position: absolute;
+  top: 11px;
+  width: 100px;
+}
+
+.JobList-UI .text-wrapper-12 {
+  color: #333333;
+  font-family: "Noto Sans", Helvetica;
+  font-size: 16px;
+  font-weight: 500;
+  left: 16px;
+  letter-spacing: 0;
+  line-height: 60px;
+  position: absolute;
+  top: 0;
+  white-space: nowrap;
+}
+
+.JobList-UI .overlap-8 {
+  height: 60px;
+  left: 160px;
+  position: absolute;
+  top: 65px;
+  width: 100px;
+}
+
+.JobList-UI .overlap-9 {
+  background-color: #ffd95a;
+  border-radius: 40px;
+  height: 120px;
+  width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.JobList-UI .text-wrapper-13 {
+  color: #333333;
+  font-family: "Noto Sans", Helvetica;
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 30px;
+  white-space: nowrap;
+}
+
+.JobList-UI .text-wrapper-14 {
+  color: #a0a0a0;
+  font-family: "Noto Sans", Helvetica;
+  font-size: 19px;
+  font-weight: 600;
+  left: 25px;
+  letter-spacing: 0;
+  line-height: 30px;
+  position: absolute;
+  top: 159px;
+  width: 264px;
+}

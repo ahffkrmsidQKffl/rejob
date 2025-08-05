@@ -1,0 +1,131 @@
+.UI {
+  background-color: #ffffff;
+  height: 100%;
+  min-height: 100vh;
+}
+
+.UI .uidivwrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap : 25px;
+}
+
+.UI .group {
+  height: 105px;
+  display: flex;
+}
+
+.UI .overlap-group-2 {
+  height: 105px;
+  position: relative;
+  width: 400px;
+  right : 10px;
+}
+
+.UI .rectangle {
+  background-color: #ffffff;
+  border: 2px solid;
+  border-color: #808080;
+  border-radius: 10px;
+  height: 50px;
+  left: 0;
+  position: absolute;
+  top: 55px;
+  width: 400px;
+}
+
+.UI .text-wrapper-7 {
+  color: #333333;
+  font-family: "Noto Sans", Helvetica;
+  font-size: 20px;
+  font-weight: 600;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 60px;
+  position: absolute;
+  top: 0;
+  white-space: nowrap;
+}
+
+.UI .overlap-wrapper {
+  height: 105px;
+  width: 502px;
+}
+
+.UI .overlap-2 {
+  height: 105px;
+  position: relative;
+  width: 500px;
+}
+
+.UI .rectangle-2 {
+  background-color: #ffffff;
+  border: 2px solid;
+  border-color: #808080;
+  border-radius: 10px;
+  height: 50px;
+  left: 0;
+  position: absolute;
+  top: 55px;
+  width: 500px;
+}
+
+.UI .overlap-group-wrapper {
+  height: 105px;
+  width: 502px;
+}
+
+.UI .overlap-3 {
+  display: flex;
+  align-items: flex-end;
+}
+
+.UI .rectangle-3 {
+  background-color: #ffd95a;
+  border-radius: 10px;
+  height: 50px;
+  width: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.UI .text-wrapper-8 {
+  color: #000000;
+  font-family: "Noto Sans", Helvetica;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0;
+  white-space: nowrap;
+  
+}
+
+.UI .div-wrapper {
+  background-color: #ffd95a;
+  border-radius: 15px;
+  height: 90px;
+  width: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.UI .text-wrapper-9 {
+  color: #333333;
+  font-family: "Noto Sans", Helvetica;
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
+.UI .text-wrapper-10 {
+  color: #333333;
+  font-family: "Noto Sans", Helvetica;
+  font-size: 45px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 60px;
+  white-space: nowrap;
+}

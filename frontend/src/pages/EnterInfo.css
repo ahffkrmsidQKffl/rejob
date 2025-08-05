@@ -1,0 +1,263 @@
+.EnterInfo-UI {
+  background-color: #ffffff;
+  height: 100%;
+  min-height: 100vh;
+}
+
+.EnterInfo-UI .div {
+  background-color: #ffffff;
+}
+
+.EnterInfo-UI .overlap {
+  background-color: #f5f5f5;
+  height: 1024px;
+  left: 295px;
+  position: absolute;
+  top: 0;
+  width: 849px;
+  display: flex;
+  flex-direction: column;
+  gap:25px
+}
+
+.EnterInfo-UI .top-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr; /* 총 5칸 */
+    align-items: center;
+    width: 100%;
+}
+
+.EnterInfo-UI .logo {
+  height: 71px;
+  width: 132px;
+  grid-column: 1 / 2;
+}
+
+/* .EnterInfo-UI .AI {
+  color: #2d4739;
+  font-family: "Black Han Sans", Helvetica;
+  font-size: 23px;
+  font-weight: 400;
+  left: 0;
+  line-height: 40px;
+  position: absolute;
+  top: 0;
+  width: 59px;
+}
+
+.EnterInfo-UI .span {
+  color: #333333;
+  letter-spacing: 0.53px;
+}
+
+.EnterInfo-UI .text-wrapper-9 {
+  color: #333333;
+  letter-spacing: 0;
+} */
+
+.EnterInfo-UI .img {
+  height: 95.990px;
+  width: 175.156px;
+}
+
+.EnterInfo-UI .text-wrapper-5 {
+  color: #333333;
+  font-family: "Noto Sans", Helvetica;
+  font-size: 35px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 60px;
+  white-space: nowrap;
+  grid-column: 2 / 5;
+}
+
+.EnterInfo-UI .group {
+  height: 105px;
+  width: 327px;
+}
+
+.EnterInfo-UI .overlap-group-2 {
+  height: 105px;
+  position: relative;
+  width: 325px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 100px;
+}
+
+.EnterInfo-UI .text-wrapper-2 {
+  color: #333333;
+  font-family: "Noto Sans", Helvetica;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 60px;
+  white-space: nowrap;
+}
+
+.EnterInfo-UI .rectangle {
+  background-color: #ffffff;
+  border: 2px solid;
+  border-color: #e0e0e0;
+  height: 50px;
+  width: 325px;
+}
+
+.EnterInfo-UI .group-2 {
+  height: 116px;
+  width: 226px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 100px;
+}
+
+.EnterInfo-UI .genderrapping {
+    display: flex;
+    align-items: center;
+    gap : 10px;
+}
+
+.EnterInfo-UI .text-wrapper-3 {
+  color: #333333;
+  font-family: "Noto Sans", Helvetica;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 60px;
+  white-space: nowrap;
+  margin-right: 50px;
+}
+
+.EnterInfo-UI .text-wrapper-4 {
+  color: #333333;
+  font-family: "Noto Sans", Helvetica;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 60px;
+  white-space: nowrap;
+}
+
+.EnterInfo-UI .rectangle-2 {
+  background-color: #ffffff;
+  border: 2px solid;
+  border-color: #e0e0e0;
+  height: 40px;
+  width: 40px;
+}
+
+.EnterInfo-UI .group-3 {
+  height: 311px;
+  width: 704px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 100px;
+}
+
+.EnterInfo-UI .rectangle-4 {
+  background-color: #ffffff;
+  border: 2px solid;
+  border-color: #e0e0e0;
+  height: 200px;
+  width: 650px;
+}
+
+.EnterInfo-UI .p {
+  color: #808080;
+  font-family: "Noto Sans", Helvetica;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 20px;
+  text-align: right;
+  align-self: flex-end;
+  margin-right: 50px;
+}
+
+.EnterInfo-UI .group-4 {
+  height: 115px;
+  width: 468px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 100px;
+}
+
+.EnterInfo-UI .birthdayrapping {
+  display: flex;
+  gap:50px
+}
+
+
+.EnterInfo-UI .overlap-2 {
+  height: 60px;
+  width: 100px;
+}
+
+.EnterInfo-UI .rectangle-5 {
+  background-color: #ffffff;
+  border: 2px solid;
+  border-color: #e0e0e0;
+  height: 50px;
+  width: 100px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.EnterInfo-UI .text-wrapper-6 {
+  color: #808080;
+  font-family: "Noto Sans", Helvetica;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 60px;
+  white-space: nowrap;
+  margin-left: 15px;
+}
+
+.EnterInfo-UI .overlap-3 {
+  height: 115px;
+  width: 200px;
+  display: flex;
+}
+
+.EnterInfo-UI .rectangle-6 {
+  background-color: #ffffff;
+  border: 2px solid;
+  border-color: #e0e0e0;
+  height: 50px;
+  width: 200px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.EnterInfo-UI .overlap-4 {
+  height: 60px;
+  width: 100px;
+}
+
+.EnterInfo-UI .overlap-group {
+  background-color: #ffd95a;
+  border-radius: 20px;
+  height: 110px;
+  width: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+}
+
+.EnterInfo-UI .text-wrapper {
+  color: #333333;
+  font-family: "Noto Sans", Helvetica;
+  font-size: 33px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 60px;
+  white-space: nowrap;
+}

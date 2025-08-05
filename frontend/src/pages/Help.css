@@ -1,0 +1,108 @@
+.Help-UI {
+  background-color: #ffffff;
+  height: 100%;
+  min-height: 100vh;
+  margin-bottom: 5vh;
+}
+
+.Help-UI .div {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Help-UI .nevigation-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.Help-UI .icon-wrapper {
+  height: 256px;
+  transform: rotate(180deg);
+  width: 85px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Help-UI .icon {
+  height: 128px;
+  width: 26px;
+}
+
+.Help-UI .img {
+  height: 128px;
+  left: 28px;
+  position: absolute;
+  top: 64px;
+  transform: rotate(-180deg);
+  width: 26px;
+}
+
+.Help-UI .overlap {
+  background-color: #f0f0f0;
+  background-image: url(https://c.animaapp.com/m58XXABM/img/image-8.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 700px;
+  width: 1000px;
+}
+
+.Help-UI .navigate-next {
+  height: 256px;
+  width: 85px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Help-UI .ellipse-wrapper {
+  position: relative;
+  display: flex;
+  width: 100vw;
+  justify-content: center;
+  gap:30px;
+}
+
+.Help-UI .ellipse {
+  background-color: #f0f0f0;
+  border-radius: 15px;
+  height: 30px;
+  width: 30px;
+}
+
+.Help-UI .ellipse-2 {
+  background-color: #f0f0f0;
+  border-radius: 15px;
+  height: 30px;
+  width: 30px;
+}
+
+.Help-UI .ellipse-3 {
+  background-color: #f0f0f0;
+  border-radius: 15px;
+  height: 30px;
+  width: 30px;
+}
+
+.Help-UI .ellipse-4 {
+  background-color: #ffd95a;
+  border-radius: 15px;
+  height: 30px;
+  width: 30px;
+}
+
+.ellipse {
+  background-color: #f0f0f0;
+  border-radius: 15px;
+  height: 30px;
+  width: 30px;
+}
+
+.ellipse-active {
+  background-color: #ffd95a;
+  border-radius: 15px;
+  height: 30px;
+  width: 30px;
+}

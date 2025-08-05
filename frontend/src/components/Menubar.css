@@ -1,0 +1,168 @@
+.menubar-div-wrapper {
+  background-color: #ffffff;
+  width: 100vw;
+  margin-bottom: calc(180px + 7.5vh);
+}
+
+.menubar-div-wrapper .overlapper {
+  width:100%;
+  height:480px;
+  z-index: 999;
+  position: fixed;
+  left : 0;
+  top:0;
+  pointer-events: none;   /* 오버레이 자체는 클릭 무시 */
+}
+
+.menubar-div-wrapper .overlap-group,   /* 상단 메뉴바 */
+.menubar-div-wrapper .overlap-2 {      /* 드롭다운 메뉴 */
+  pointer-events: auto;
+}
+
+.menubar-div-wrapper .overlap-group {
+  background-image: url(https://c.animaapp.com/BkKVzIlT/img/rectangle-5.png);
+  background-size: 100% 100%;
+  height: 180px;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.menubar-div-wrapper .logo {
+}
+
+.menubar-div-wrapper .image {
+}
+
+.menubar-div-wrapper .img {
+}
+
+.menubar-div-wrapper .image-2 {
+}
+
+.menubar-div-wrapper .overlap {
+  height: 5px;
+  left: 0;
+  position: absolute;
+  top: 175px;
+  width: 100%;
+}
+
+.menubar-div-wrapper .line {
+  height: 2px;
+  left: 0;
+  position: absolute;
+  top: 3px;
+  width: 100%;
+}
+
+.menubar-div-wrapper .rectangle {
+  height: 5px;
+  left: 349px;
+  position: absolute;
+  top: 0;
+  width: 150px;
+}
+
+.menubar-div-wrapper .image-wrapper {
+  background-image: url(https://c.animaapp.com/BkKVzIlT/img/rectangle-41.png);
+  background-size: 100% 100%;
+  height: 70px;
+  width: 130px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menubar-div-wrapper .image-3 {
+}
+
+.menubar-div-wrapper .overlap-2 {
+  background-image: url(https://c.animaapp.com/BkKVzIlT/img/rectangle-50.png);
+  background-size: 100% 100%;
+  height: 300px;
+  left: 0;
+  position: absolute;
+  top: 180px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.overlap-2.hide {
+  opacity: 0;
+  transform: translateY(-100%);
+  pointer-events: none;
+}
+
+.overlap-2.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.menubar-div-wrapper .invisible-box {
+  width: 223.17px;
+  height: 1px;
+  visibility: hidden;
+}
+
+.menubar-div-wrapper .invisible-box2 {
+  width: 130px;
+  height: 1px;
+  visibility: hidden;
+}
+
+.menubar-div-wrapper .sijackhagi {
+  display: flex;
+  flex-direction: column;
+  width: 125px;
+  height : 300px;
+  justify-content: space-around;
+}
+
+.menubar-div-wrapper .divforimage {
+  display: flex;
+  justify-content: center;
+  height : 25px;
+}
+
+.menubar-div-wrapper .illjarichaggi {
+  display: flex;
+  flex-direction: column;
+  width: 166px;
+  height : 300px;
+  justify-content: space-around;
+}
+
+.menubar-div-wrapper .hwarewongaip {
+  display: flex;
+  flex-direction: column;
+  width: 125px;
+  height : 300px;
+  justify-content: space-around;
+}
+
+
+.menubar-div-wrapper .image-4 {
+}
+
+.menubar-div-wrapper .image-5 {
+}
+
+.menubar-div-wrapper .image-6 {
+}
+
+.menubar-div-wrapper .AI {
+}
+
+.menubar-div-wrapper .image-7 {
+}
+
+.menubar-div-wrapper .image-8 {
+}
