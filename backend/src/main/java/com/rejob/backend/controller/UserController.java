@@ -28,9 +28,9 @@ public class UserController {
 
     // 마이페이지 조회
     @GetMapping("/me")
-    public ResponseEntity<ResponseData<UserInfoResponse>> getMyPageInfo(HttpSession session) {
+    public ResponseEntity<ResponseData<MyPageResponse>> getMyPageInfo(HttpSession session) {
         Long userId = (Long) session.getAttribute("user_id");
-        UserInfoResponse dto = userService.getUserInfo(userId);
+        MyPageResponse dto = userService.getMyPageInfo(userId);
 
         return ResponseEntity.ok(new ResponseData<>(200, "마이페이지 조회 성공", dto));
     }

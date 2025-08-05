@@ -43,15 +43,34 @@ public class UserService {
         userRepository.save(user);
     }
 
-    public UserInfoResponse getUserInfo(Long userId) {
+    @Transactional(readOnly = true)
+    public MyPageResponse getMyPageInfo(Long userId) {
+        // 사용자 정보 조회
         UserInfo userInfo = userInfoRepository.findByUser_UserId(userId);
-
         if(userInfo == null) {
             throw new CustomException("해당 사용자를 찾을 수 없습니다.");
         }
 
-        return new UserInfoResponse(userInfo);
+        // 이력서 목록 조회
+        List<Resume> resumeList = resumeRepository.findAllByUser_UserId(userId);
+        List<ResumeSummaryResponse> resumes = resumeList.stream()
+                .map(ResumeSummaryResponse::new)
+                .collect(Collectors.toList());
+
+        // 지원 내역 조회
+        List<Application> applicationList = applicationRepository.findAllByUser_UserId(userId);
+        List<ApplicationSummaryResponse> applications = applicationList.stream()
+                .map(ApplicationSummaryResponse::new)
+                .collect(Collectors.toList());
+
+        // 응답 구성
+        return new MyPageResponse(
+                new UserInfoResponse(userInfo),
+                resumes,
+                applications
+        );
     }
+
 
     @Transactional
     public void updateUserInfo(Long userId, UserInfoUpdateRequest request) {
