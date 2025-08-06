@@ -1,12 +1,21 @@
 package com.rejob.backend.service;
 
 import ch.qos.logback.core.spi.ErrorCodes;
+import com.rejob.backend.dto.request.UserInfoRequest;
 import com.rejob.backend.dto.request.UserInfoUpdateRequest;
 import com.rejob.backend.dto.request.UserRegisterRequest;
+import com.rejob.backend.dto.response.ApplicationSummaryResponse;
+import com.rejob.backend.dto.response.MyPageResponse;
+import com.rejob.backend.dto.response.ResumeSummaryResponse;
 import com.rejob.backend.dto.response.UserInfoResponse;
+import com.rejob.backend.entity.Application;
+import com.rejob.backend.entity.Resume;
 import com.rejob.backend.entity.User;
 import com.rejob.backend.entity.UserInfo;
+import com.rejob.backend.enums.Gender;
 import com.rejob.backend.exception.CustomException;
+import com.rejob.backend.repository.ApplicationRepository;
+import com.rejob.backend.repository.ResumeRepository;
 import com.rejob.backend.repository.UserInfoRepository;
 import com.rejob.backend.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -14,7 +23,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -22,8 +34,11 @@ public class UserService {
 
     private final UserRepository userRepository;
     private final UserInfoRepository userInfoRepository;
+    private final ResumeRepository resumeRepository;
+    private final ApplicationRepository applicationRepository;
     private final PasswordEncoder passwordEncoder;
 
+    // 회원가입
     public void register(UserRegisterRequest request) {
 
         // 이메일 중복 검사
@@ -43,6 +58,7 @@ public class UserService {
         userRepository.save(user);
     }
 
+    // 마이페이지 조회
     @Transactional(readOnly = true)
     public MyPageResponse getMyPageInfo(Long userId) {
         // 사용자 정보 조회
@@ -71,7 +87,7 @@ public class UserService {
         );
     }
 
-
+    // 마이페이지 수정 - 개인정보
     @Transactional
     public void updateUserInfo(Long userId, UserInfoUpdateRequest request) {
         UserInfo info = userInfoRepository.findByUser_UserId(userId);
@@ -81,5 +97,36 @@ public class UserService {
         }
 
         info.updateInfo(request.getName(), request.getBirth(), request.getGender(), request.getJob_experience());
+    }
+
+    // 필수 정보 저장
+    @Transactional
+    public UserInfoResponse saveUserInfo(UserInfoRequest request, Long userId) {
+        UserInfo info = new UserInfo();
+
+        // 회원인 경우 User 설정
+        if(userId != null) {
+            User user = userRepository.findByUserId(userId);
+            if(user == null) {
+                throw new CustomException("해당 사용자가 존재하지 않습니다.");
+            }
+
+            info.setUser(user);
+
+            // 중복 방지: 이미 등록된 경우 예외
+            if(userInfoRepository.existsByUser_UserId(userId)) {
+                throw new CustomException("이미 정보가 등록되어 있습니다.");
+            }
+        }
+
+        // 필수 정보 저장
+        info.setName(request.getName());
+        info.setBirth(LocalDate.parse(request.getBirth()));
+        info.setGender(Gender.valueOf(request.getGender()));
+
+        info.setJobExperience(request.getJob_experience());
+
+        UserInfo saved = userInfoRepository.save(info);
+        return new UserInfoResponse(saved);
     }
 }
