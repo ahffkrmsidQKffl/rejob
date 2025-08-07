@@ -1,8 +1,11 @@
 
+import { Menubar } from '../components/Menubar';
 import "./EnterInfo.css";
 
 export const EnterInfo = () => {
   return (
+    <>
+    <Menubar />
     <div className="EnterInfo-UI" data-model-id="86:38">
       <div className="div">
         <div className="overlap">
@@ -78,5 +81,6 @@ export const EnterInfo = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
