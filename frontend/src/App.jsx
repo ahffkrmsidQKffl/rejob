@@ -6,6 +6,7 @@ import { MyPage } from './pages/MyPage';
 import { Help } from './pages/Help';
 import { EnterInfo } from './pages/EnterInfo';
 import { Recommend } from './pages/Recommend';
+import { RecommendModal } from './components/RecommendModal';
 import { Menubar } from './components/Menubar';
 import './App.css';
 
@@ -22,6 +23,7 @@ function App() {
       <Route path="/help" element={<Help />} />
       <Route path="/enterinfo" element={<EnterInfo />} />
       <Route path="/recommend" element={<Recommend />} />
+      <Route path="/recommendmodal" element={<RecommendModal />} />
     </Routes>
     
   )

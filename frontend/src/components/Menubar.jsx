@@ -142,13 +142,13 @@ export const Menubar = () => {
           </div>
           </div>
           <div className="illjarichaggi">
-          <div className="divforimage" onClick={() => handleMenuClick("/input")}>
+          {/* <div className="divforimage" onClick={() => handleMenuClick("/input")}>
           <img
             className="AI"
             alt="Ai 이력서 생성"
             src="https://c.animaapp.com/BkKVzIlT/img/ai-------.png"
           />
-          </div>
+          </div> */}
           <div className="divforimage" onClick={() => handleMenuClick("/recommend")}>
           <img
             className="image-7"
@@ -162,6 +162,9 @@ export const Menubar = () => {
             alt="전체 일자리 목록"
             src="https://c.animaapp.com/BkKVzIlT/img/---------.png"
           />
+          </div>
+          <div className="divforimage">
+          <div className="invisible-box5" />
           </div>
           </div>
           

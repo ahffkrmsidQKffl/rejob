@@ -48,11 +48,11 @@ export const MyPage = () => {
           <div className="text-wrapper">개인정보</div>
         </div>
 
-        <div className={`overlap${selectedTab === "이력서 보관함" ? "-group" : ""}`}
+        {/* <div className={`overlap${selectedTab === "이력서 보관함" ? "-group" : ""}`}
         onClick={() => setSelectedTab("이력서 보관함")}
         style={{ cursor: "pointer" }}>
           <div className="text-wrapper-2">이력서 보관함</div>
-        </div>
+        </div> */}
 
         <div className={`overlap${selectedTab === "접수 내역 조회" ? "-group" : ""}`}
         onClick={() => setSelectedTab("접수 내역 조회")}

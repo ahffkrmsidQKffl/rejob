@@ -1,0 +1,221 @@
+.RecommendModal-box {
+  width: 900px;
+}
+
+.RecommendModal-box .RecommendModal-group {
+  width: 900px;
+}
+
+.RecommendModal-box .RecommendModal-overlap-group {
+  background-color: #ffffff;
+  border-radius: 20px;
+  min-height: 600px;
+  position: relative;
+  width: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap : 20px;
+}
+
+.RecommendModal-box .RecommendModal-x-instance {
+    align-self: flex-end;
+    margin-right: 25px;
+    margin-top: 25px;
+}
+
+
+.RecommendModal-box .RecommendModal-text-wrapper-1-5 {
+    width : 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 0 87.5px;
+}
+
+.RecommendModal-box .RecommendModal-text-wrapper-2 {
+  color: #333333;
+  font-family: "Noto Sans", Helvetica;
+  font-size: 40px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: normal;
+
+  /* 남은 공간 전부 사용 */
+  flex: 1 1 auto;
+  min-width: 0;                     /* 🔥 flex item 줄바꿈/ellipsis가 먹히게 필수 */
+
+  /* 2줄까지만 보이고 … */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+
+  text-align: left;
+  margin-left: 87.5px;
+  /* align-self: flex-start;
+  width: 60%;
+  display: flex;
+  justify-content: flex-start; */
+}
+
+.RecommendModal-box .RecommendModal-text-wrapper-2-5 {
+  color: #333333;
+  font-family: "Noto Sans", Helvetica;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: normal;
+
+  /* 내용 길이만큼만, 줄바꿈 없음 */
+  flex: 0 0 auto;                   /* 🔥 고정 폭(내용만큼) */
+  white-space: nowrap;
+  overflow: hidden;                 /* 길면 … */
+  text-overflow: ellipsis;
+  max-width: 40%;                   /* 너무 길면 겹치지 않도록 상한 (원하면 % 조정) */
+
+  text-align: right;                /* 오른쪽 정렬 */
+  
+  /* align-self: flex-end;
+  width:auto;
+  display: flex;
+  justify-content: flex-end; */
+  margin-right: 87.5px; 
+  align-self: flex-end;
+}
+
+.RecommendModal-box .RecommendModal-line {
+  height: 3px;
+  width: 750px;
+}
+
+.RecommendModal-box .RecommendModal-groupunderline {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width:725px;
+    gap : 15px;
+}
+
+.RecommendModal-box .RecommendModal-groupoflcp {
+    display: flex;
+    align-items: center;
+    gap : 5px;
+}
+
+
+.RecommendModal-box .RecommendModal-text-wrapper {
+  color: #000000;
+  font-family: "Noto Sans", Helvetica;
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 30px;
+  white-space: nowrap;
+  margin-top: 15px;
+}
+
+.RecommendModal-box .RecommendModal-overlap.noin {
+  background-color: #ffd95a;
+  border-radius: 20px;
+  height: 100px;
+  width: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 25px;
+}
+
+.RecommendModal-box .RecommendModal-overlap {
+  background-color: #2a52be;
+  border-radius: 20px;
+  height: 100px;
+  width: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.RecommendModal-box .RecommendModal-p {
+  color: #333333;
+  font-family: "Noto Sans", Helvetica;
+  font-size: 25px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.RecommendModal-box .RecommendModal-work-detail-instance {
+    width : 30px;
+    align-self: flex-start;
+    margin-top: 4px;
+    margin-right: -3px;
+}
+
+.RecommendModal-box .RecommendModal-p-jikmoo {
+  color: #333333;
+  font-family: "Noto Sans", Helvetica;
+  font-size: 25px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: normal;
+  width : 100px;
+  align-self: flex-start;
+}
+
+
+.RecommendModal-box .RecommendModal-div {
+  color: #ffffff;
+  font-family: "Noto Sans", Helvetica;
+  font-size: 33px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 60px;
+  white-space: nowrap;
+}
+
+.RecommendModal-box .noin .RecommendModal-div {
+  color: #000000;
+  font-family: "Noto Sans", Helvetica;
+  font-size: 33px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 60px;
+  white-space: nowrap;
+}
+
+.RecommendModal-box .job-description-box {
+  width: 450px;
+  height: 45px;
+  overflow: hidden;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  padding: 15px;
+  font-size: 18px;
+  line-height: 28px;
+  font-family: "Noto Sans", Helvetica;
+  color: #333;
+  transition: height 0.3s ease;
+}
+
+.RecommendModal-box .job-description-box.expanded {
+  height: 300px; /* 확장 시 높이 */
+  overflow-y: auto; /* 내용이 넘칠 경우 스크롤 */
+}
+
+.RecommendModal-box .expand-btn {
+    
+  font-family: "Noto Sans", Helvetica;
+  background: none;
+  border: none;
+  color: #007bff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  width : 100px;
+}
