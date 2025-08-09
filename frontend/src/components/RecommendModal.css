@@ -209,7 +209,6 @@
 }
 
 .RecommendModal-box .expand-btn {
-    
   font-family: "Noto Sans", Helvetica;
   background: none;
   border: none;
@@ -218,4 +217,77 @@
   font-weight: 600;
   cursor: pointer;
   width : 100px;
+}
+
+
+
+/* -------- CallScriptModal modern styles -------- */
+.cs-modal{
+  background:#fff; border-radius:20px; box-shadow:0 12px 40px rgba(0,0,0,.18);
+  width:900px; max-width:92vw; max-height:86vh; overflow:hidden; position:relative;
+  padding:28px 28px 22px; display:flex; flex-direction:column; gap:16px;
+  animation: cs-pop .16s ease-out;
+}
+@keyframes cs-pop{from{transform:scale(.98);opacity:.6}to{transform:scale(1);opacity:1}}
+
+.cs-close{
+  position:absolute; top:10px; right:14px; width:20px; height:20px; border:none;
+  background:#FFFFFF; border-radius:10px; cursor:pointer; font-size:22px; line-height:36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cs-close:hover{background:#eef1f7}
+
+.cs-header{display:flex; align-items:flex-end; justify-content:space-between; gap:16px}
+.cs-header h2{font-size:28px; line-height:1.2; margin:0; font-weight:800; letter-spacing:-.2px}
+.cs-org{font-size:14px; color:#70757a; font-weight:600}
+
+.cs-sep{border:none; height:2px; background:linear-gradient(90deg,#e8ebf2, #f7f7fa); margin:0}
+
+.cs-ment{
+  background:#fff9d8; border:1px solid #ffe59e; border-radius:16px; padding:20px 22px;
+}
+.cs-ment-text{
+  margin:0; font-size:22px; line-height:34px; font-weight:800; color:#222;
+  word-break:keep-all; overflow-wrap:anywhere;
+}
+.cs-ment-hint{margin:6px 0 0; font-size:13px; color:#7c7f85}
+
+.cs-info{
+  background:#f7f9fc; border:1px solid #e9eef6; border-radius:16px; padding:14px 16px;
+  display:grid; grid-template-columns: 1fr 1fr; gap:10px 18px;
+  align-items: center;
+  font-family: "Noto Sans", Helvetica;
+}
+.cs-row{display:flex; gap:10px}
+.cs-label{width:84px; color:#7a7f86; font-weight:700; font-size:14px; flex:0 0 84px; align-self: center;}
+.cs-value{color:#1f2328; font-weight:600; font-size:15px}
+.cs-link{color:#2563eb; text-decoration:underline; margin-right: 5px;}
+
+@media (max-width:720px){
+  .cs-info{grid-template-columns:1fr}
+  .cs-label{flex:0 0 72px}
+}
+
+/* actions */
+.cs-actions{display:flex; gap:12px; margin-top:auto}
+.btn{
+  appearance:none; border:1px solid transparent; border-radius:14px; padding:14px 22px;
+  font-size:18px; font-weight:800; cursor:pointer; transition:transform .03s ease, box-shadow .2s;
+}
+.btn:active{transform:translateY(1px)}
+.btn-primary{background:#ffd95a; border-color:#f3c744; color:#111; box-shadow:0 6px 16px rgba(255,196,38,.35)}
+.btn-primary:hover{filter:brightness(.98)}
+.btn-outline{background:#fff; border-color:#d7dbe5; color:#222}
+.btn-outline:hover{background:#f7f9fc}
+.btn-ghost{background:#fff; border-color:#e5e7ee; color:#444}
+.btn-xs{padding:4px 10px; font-size:12px; font-weight:700; border-radius:8px}
+
+/* print: 멘트만 크게 */
+@media print{
+  .modal-overlay{background:#fff}
+  .cs-close, .cs-actions{display:none}
+  .cs-modal{box-shadow:none; width:auto; max-height:none}
+  .cs-ment-text{font-size:24px}
 }

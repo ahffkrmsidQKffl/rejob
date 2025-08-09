@@ -14,7 +14,7 @@ export const Recommend = () => {
 
   useEffect(() => {
   // 노인일자리여기
-  fetch(`/korea_jobs_fixed16_recommended.csv`)
+  fetch(`/recommendations_korea.csv`)
     .then((res) => res.text())
     .then((text) => {
       const parsed = Papa.parse(text, { header: true });
@@ -45,7 +45,7 @@ export const Recommend = () => {
       setSeniorJobs(seniorData);
     });
   // 사람인
-  fetch(`/senior_jobs_fixed_recommended.csv`)
+  fetch(`/recommendations_senior.csv`)
     .then((res) => res.text())
     .then((text) => {
       const parsed = Papa.parse(text, { header: true });

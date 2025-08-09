@@ -1,8 +1,11 @@
 import { useState } from "react";
+import CallScriptModal from "./CallScriptModal";
 import "./RecommendModal.css";
 
 export const RecommendModal = ({job, onClose}) => {
   const [expanded, setExpanded] = useState(false);
+  const [showMent, setShowMent] = useState(false);
+
   const toggleExpanded = () => setExpanded(prev => !prev);
   // 1) source별 표준화
   const view = (() => {
@@ -17,7 +20,7 @@ export const RecommendModal = ({job, onClose}) => {
           desc: job.jobDescription,
           ctaText: "전화 스크립트 생성하기",
           ctaClass: "noin",
-          onCta: () => { /* 전화 스크립트 모달 열기 등 */ }
+          onCta: () => setShowMent(true)
         };
       case "사람인":
         return {
@@ -108,6 +111,8 @@ export const RecommendModal = ({job, onClose}) => {
           </div>
         </div>
       </div>
+      {/* 생성 후 스크립트 모달 */}
+      {showMent && <CallScriptModal job={job} onClose={() => setShowMent(false)} />}
     </div>
   );
 };
