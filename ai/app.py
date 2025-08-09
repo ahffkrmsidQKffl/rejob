@@ -120,6 +120,16 @@ def is_active_today(period):
 KOREA_CSV = "korea_jobs_fixed16_final.csv"
 df_korea = pd.read_csv(KOREA_CSV, encoding="utf-8-sig")
 
+# 🔹 korea 임베딩 사전 계산
+df_korea = df_korea.reset_index().rename(columns={"index": "_rowid"})
+df_korea["직무텍스트_all"] = df_korea["직무요약"].fillna("") + " " + df_korea["직무내용"].fillna("")
+JOB_EMB_KOREA = model.encode(
+    df_korea["직무텍스트_all"].tolist(),
+    batch_size=64,
+    convert_to_numpy=True,
+    normalize_embeddings=True  # 미리 정규화
+)
+
 @app.post("/recommend/korea")
 def recommend_korea():
     user = request.get_json(force=True) or {}
@@ -148,12 +158,19 @@ def recommend_korea():
     rmin, rmax = work["rule_raw"].min(), work["rule_raw"].max()
     work["rule_score"] = (work["rule_raw"]-rmin)/(rmax-rmin) if rmax>rmin else 0.0
 
-    # 임베딩 유사도
-    work["직무텍스트"] = work["직무요약"].fillna("")+" "+work["직무내용"].fillna("")
-    job_emb = encode_texts(work["직무텍스트"].tolist())
+    # 임베딩 유사도 (매번 계산)
+    # work["직무텍스트"] = work["직무요약"].fillna("")+" "+work["직무내용"].fillna("")
+    # job_emb = encode_texts(work["직무텍스트"].tolist())
+    # q = encode_query(user)
+    # sims = np.array([cosine(v,q) for v in job_emb])
+    # work["sim_score"] = (sims+1.0)/2.0
+
+    # 그래서 이렇게 교체
+    emb_slice = JOB_EMB_KOREA[work["_rowid"].to_numpy()]
     q = encode_query(user)
-    sims = np.array([cosine(v,q) for v in job_emb])
-    work["sim_score"] = (sims+1.0)/2.0
+    q = q / (np.linalg.norm(q) + 1e-9)  # 쿼리도 정규화
+    sims = emb_slice @ q  # 내적 = 코사인 유사도
+    work["sim_score"] = (sims + 1.0) / 2.0
 
     work["final_score"] = 0.5*work["rule_score"] + 0.5*work["sim_score"]
 
@@ -184,6 +201,20 @@ def recommend_korea():
 # --------- senior 전용 ---------
 SENIOR_CSV = "senior_jobs_fixed.csv"
 df_senior = pd.read_csv(SENIOR_CSV, encoding="utf-8-sig")
+
+# 🔹 senior 임베딩 사전 계산
+df_senior = df_senior.reset_index().rename(columns={"index": "_rowid"})
+df_senior["job_text_all"] = (
+    df_senior["title"].fillna("") + " " +
+    df_senior["keyword"].fillna("") + " " +
+    df_senior["employment_type"].fillna("")
+)
+JOB_EMB_SENIOR = model.encode(
+    df_senior["job_text_all"].tolist(),
+    batch_size=64,
+    convert_to_numpy=True,
+    normalize_embeddings=True
+)
 
 def is_open(exp):
     if pd.isna(exp): return True
@@ -216,16 +247,24 @@ def recommend_senior():
     rmin, rmax = work["rule_raw"].min(), work["rule_raw"].max()
     work["rule_score"] = (work["rule_raw"]-rmin)/(rmax-rmin) if rmax>rmin else 0.0
 
-    # 임베딩 유사도 (title+keyword+employment_type)
-    work["job_text"] = (
-        work["title"].fillna("")+" "+
-        work["keyword"].fillna("")+" "+
-        work["employment_type"].fillna("")
-    )
-    job_emb = encode_texts(work["job_text"].tolist())
+    # 임베딩 유사도 (title+keyword+employment_type) (매번 계산)
+    # work["job_text"] = (
+    #     work["title"].fillna("")+" "+
+    #     work["keyword"].fillna("")+" "+
+    #     work["employment_type"].fillna("")
+    # )
+    # job_emb = encode_texts(work["job_text"].tolist())
+    # q = encode_query(user)
+    # sims = np.array([cosine(v,q) for v in job_emb])
+    # work["sim_score"] = (sims+1.0)/2.0
+
+    # 그래서 이렇게 교체
+    emb_slice = JOB_EMB_SENIOR[work["_rowid"].to_numpy()]
     q = encode_query(user)
-    sims = np.array([cosine(v,q) for v in job_emb])
-    work["sim_score"] = (sims+1.0)/2.0
+    q = q / (np.linalg.norm(q) + 1e-9)
+    sims = emb_slice @ q
+    work["sim_score"] = (sims + 1.0) / 2.0
+
 
     work["final_score"] = 0.5*work["rule_score"] + 0.5*work["sim_score"]
 

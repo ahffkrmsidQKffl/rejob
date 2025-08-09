@@ -5,6 +5,7 @@ import { Menubar } from '../components/Menubar';
 import "./EnterInfo.css";
 
 export const EnterInfo = () => {
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   // 단일 입력 스키마 (공통 + 선택)
@@ -66,25 +67,28 @@ export const EnterInfo = () => {
     const userInput = buildUserInput();
     localStorage.setItem("userInput", JSON.stringify(userInput));
     try {
-      await fetch("http://localhost:5001/recommend/korea", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(userInput),
-    });
+        // ✅ 병렬 호출 (아래 2)에서 설명)
+        await Promise.all([
+          fetch("http://localhost:5001/recommend/korea", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(userInput),
+          }),
+          fetch("http://localhost:5001/recommend/senior", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(userInput),
+          }),
+        ]);
 
-    await fetch("http://localhost:5001/recommend/senior", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(userInput),
-    });
-
-    // 이제 public/recommendations_korea.csv, recommendations_senior.csv 생성됨
-    navigate("/recommend");
-  } catch (e) {
-    alert("추천 준비 중 오류가 발생했습니다. 서버 상태를 확인해 주세요.");
-    console.error(e);
-  }
-  };
+        navigate("/recommend");
+      } catch (e) {
+        alert("추천 준비 중 오류가 발생했습니다. 서버 상태를 확인해 주세요.");
+        console.error(e);
+      } finally {
+        setLoading(false);
+      }
+    };
 
   const Toggle = ({label, checked, onChange}) => (
     <button
@@ -261,9 +265,16 @@ export const EnterInfo = () => {
               </section>
             )}
 
-          <div className="overlap-group" onClick={handleSubmit}>
-            <div className="text-wrapper">일자리 추천받기</div>
-          </div>
+          <button
+            className="overlap-group"
+            onClick={handleSubmit}
+            disabled={loading}
+            aria-busy={loading}
+          >
+            <div className="text-wrapper">
+              {loading ? "추천 중..." : "일자리 추천받기"}
+            </div>
+          </button>
         </div>
       </div>
     </div>
