@@ -1,21 +1,14 @@
 package com.rejob.backend.service;
 
-import ch.qos.logback.core.spi.ErrorCodes;
 import com.rejob.backend.dto.request.UserInfoRequest;
 import com.rejob.backend.dto.request.UserInfoUpdateRequest;
 import com.rejob.backend.dto.request.UserRegisterRequest;
-import com.rejob.backend.dto.response.ApplicationSummaryResponse;
 import com.rejob.backend.dto.response.MyPageResponse;
-import com.rejob.backend.dto.response.ResumeSummaryResponse;
 import com.rejob.backend.dto.response.UserInfoResponse;
-import com.rejob.backend.entity.Application;
-import com.rejob.backend.entity.Resume;
 import com.rejob.backend.entity.User;
 import com.rejob.backend.entity.UserInfo;
 import com.rejob.backend.enums.Gender;
 import com.rejob.backend.exception.CustomException;
-import com.rejob.backend.repository.ApplicationRepository;
-import com.rejob.backend.repository.ResumeRepository;
 import com.rejob.backend.repository.UserInfoRepository;
 import com.rejob.backend.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -24,9 +17,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -34,8 +24,6 @@ public class UserService {
 
     private final UserRepository userRepository;
     private final UserInfoRepository userInfoRepository;
-    private final ResumeRepository resumeRepository;
-    private final ApplicationRepository applicationRepository;
     private final PasswordEncoder passwordEncoder;
 
     // 회원가입
@@ -66,7 +54,7 @@ public class UserService {
         if(userInfo == null) {
             throw new CustomException("해당 사용자를 찾을 수 없습니다.");
         }
-
+/** 이력서, 접수 내역 부분 삭제
         // 이력서 목록 조회
         List<Resume> resumeList = resumeRepository.findAllByUser_UserId(userId);
         List<ResumeSummaryResponse> resumes = resumeList.stream()
@@ -78,12 +66,10 @@ public class UserService {
         List<ApplicationSummaryResponse> applications = applicationList.stream()
                 .map(ApplicationSummaryResponse::new)
                 .collect(Collectors.toList());
-
+**/
         // 응답 구성
         return new MyPageResponse(
-                new UserInfoResponse(userInfo),
-                resumes,
-                applications
+                new UserInfoResponse(userInfo)
         );
     }
 

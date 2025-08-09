@@ -6,7 +6,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class JobPostingRequest {
-    
+
     private String title;
     private String company_name;
     private String location;

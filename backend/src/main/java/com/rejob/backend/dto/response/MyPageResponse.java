@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.List;
 
 @Getter
 @Setter
@@ -12,6 +11,6 @@ import java.util.List;
 public class MyPageResponse {
 
     private UserInfoResponse user_info;
-    private List<ResumeSummaryResponse> resumes;
-    private List<ApplicationSummaryResponse> applications;
+    // private List<ResumeSummaryResponse> resumes; 이력서 필드 삭제
+    // private List<ApplicationSummaryResponse> applications; 접수 내역 필드 삭제
 }

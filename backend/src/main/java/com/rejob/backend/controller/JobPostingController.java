@@ -5,6 +5,7 @@ import com.rejob.backend.dto.request.JobPostingRequest;
 import com.rejob.backend.dto.response.JobPostingResponse;
 import com.rejob.backend.service.JobPostingService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,5 +28,13 @@ public class JobPostingController {
     public ResponseEntity<ResponseData<Void>> saveJobs(@RequestBody JobPostingRequest request) {
         jobPostingService.saveJob(request);
         return ResponseEntity.ok(new ResponseData<>(201, "일자리 정보 저장 성공", null));
+    }
+
+    // AI 크롤러에서 당겨와 저장
+    @PostMapping("/sync")
+    public ResponseEntity<ResponseData<Integer>> syncFromAI(@RequestParam String source) {
+        int inserted = jobPostingService.syncFromAI(source); // source: 사람인 | 노인일자리여기
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(new ResponseData<>(201, "AI 동기화 성공", inserted));
     }
 }
