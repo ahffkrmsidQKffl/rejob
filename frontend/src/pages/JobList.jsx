@@ -1,4 +1,5 @@
 import JobCard from "../components/JobCard";
+import { RecommendModal } from "../components/RecommendModal";
 import { Menubar } from '../components/Menubar';
 import Dropdown from "../components/Dropdown";
 import { useState, useEffect, useMemo  } from "react";
@@ -15,6 +16,17 @@ const PROVINCES = [
 const TYPES = ["전체","노인일자리여기","사람인"];
 
 export const JobList = () => {
+  const [selectedJob, setSelectedJob] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const handleDetailClick = (job) => {
+    setSelectedJob(job);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setSelectedJob(null);
+    setIsModalOpen(false);
+  };
   const [allJobs, setAllJobs] = useState([]);
   const [query, setQuery] = useState("");
   // state
@@ -89,9 +101,16 @@ export const JobList = () => {
 
         <div className="overlap-group-groupper">
         {filtered.map(job => (
-          <JobCard key={job.id} job={job} onDetail={(j) => console.log("자세히 보기", j)} />
+          <JobCard key={job.id} job={job} onDetail={handleDetailClick} />
         ))}
         </div>
+        {isModalOpen && selectedJob && (
+        <div className="modal-overlay" onClick={closeModal}>
+          <div onClick={(e) => e.stopPropagation()}>
+            <RecommendModal job={selectedJob} onClose={closeModal} />
+          </div>
+        </div>
+        )}
       </div>
     </div>
     </>
