@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom"; 
 import { Menubar } from '../components/Menubar';
 import "./Help.css";
 
@@ -10,13 +11,19 @@ export const Help = () => {
   "/도움말-2.png",
   ];
   const [currentIndex, setCurrentIndex] = useState(0);
+  const navigate = useNavigate();
 
   const handlePrev = () => {
   setCurrentIndex((prev) => (prev > 0 ? prev - 1 : prev));
   };
 
   const handleNext = () => {
-  setCurrentIndex((prev) => (prev < helpImages.length - 1 ? prev + 1 : prev));
+    setCurrentIndex((prev) => {
+      if (prev < helpImages.length - 1) return prev + 1;
+      // 마지막 인덱스에서 한 번 더 누르면 다음 페이지로 이동
+      navigate("/enterinfo");
+      return prev; // 상태는 유지
+    });
   };
 
   return (

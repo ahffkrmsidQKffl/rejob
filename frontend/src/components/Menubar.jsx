@@ -7,7 +7,7 @@ export const Menubar = () => {
   const [showSubmenu, setShowSubmenu] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
 
-  const [isLoggedIn, setIsLoggedIn] = useState(true); // 🟡 임시 로그인 상태
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // 🟡 임시 로그인 상태
 
   const navigate = useNavigate();
 

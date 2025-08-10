@@ -1,41 +1,86 @@
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import Papa from "papaparse";
+import JobCard from "../components/JobCard"; // Recommend에서 쓰는 카드
+import { RecommendModal } from "../components/RecommendModal";
 import { Menubar } from '../components/Menubar';
 import "./MyPage.css";
-import "./MyPageResume.css";
 
 export const MyPage = () => {
   const [selectedTab, setSelectedTab] = useState("개인정보");
-  const dummyResumes = [
-  {
-    id: 1,
-    position: "요양보호사",
-    region: "서울특별시 강동구",
-    createdAt: "2025-07-25",
-    extra: "어르신 케어 경력 5년",
-  },
-  {
-    id: 2,
-    position: "청소 도우미",
-    region: "서울특별시 송파구",
-    createdAt: "2025-07-26",
-    extra: "가사도우미 경험 2년",
-  },
-  {
-    id: 3,
-    position: "경비원",
-    region: "서울특별시 노원구",
-    createdAt: "2025-07-27",
-    extra: "아파트 근무 3년",
-  },
-  {
-    id: 4,
-    position: "경비원",
-    region: "서울특별시 노원구",
-    createdAt: "2025-07-27",
-    extra: "아파트 근무 3년",
-  },
-  ];
+  // 내 접수 이력 (노인일자리여기 / 사람인·고용24)
+  const [appliedKorea, setAppliedKorea] = useState([]);
+  const [appliedSenior, setAppliedSenior] = useState([]);
+
+  // 모달
+  const [selectedJob, setSelectedJob] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const openModal = (job) => { setSelectedJob(job); setIsModalOpen(true); };
+  const closeModal = () => { setSelectedJob(null); setIsModalOpen(false); };
+  
+  useEffect(() => {
+    // 1) 노인일자리여기 접수 이력
+    fetch(`/applied_jobs_korea.csv`)
+      .then((res) => res.text())
+      .then((text) => {
+        const parsed = Papa.parse(text, { header: true });
+        const data = parsed.data
+          .filter(row => row["기관"] || row["사업체명"])
+          .map((row, index) => ({
+            id: index,
+            organization: row["기관"] || "",
+            company: row["사업체명"] || "",
+            orgAddress: row["기관소재지"] || "",
+            jobSummary: row["직무요약"] || "",
+            jobType: row["사업유형"] || "",
+            plannedPeople: row["계획인원"] || "",
+            joinedPeople: row["참여인원"] || "",
+            recruitPeriod: row["모집기간"] || "",
+            workLocationDetail: row["근무지역(상세)"] || "",
+            jobDescription: row["직무내용"] || "",
+            recruitPeopleDetail: row["모집인원(상세)"] || "",
+            weeklyWorkTime: row["주근무시간"] || "",
+            monthlyWorkTime: row["월근무시간"] || "",
+            salary: row["임금액"] || "",
+            recruitManager: row["구인담당자"] || "",
+            contact: row["연락처"] || "",
+            source: "노인일자리여기",
+          }));
+        setAppliedKorea(data);
+      });
+
+    // 2) 사람인·고용24 접수 이력
+    fetch(`/applied_jobs_senior.csv`)
+      .then((res) => res.text())
+      .then((text) => {
+        const parsed = Papa.parse(text, { header: true });
+        const data = parsed.data
+          .filter(row => row["title"] && row["company"])
+          .map((row, index) => ({
+            id: index,
+            title: row["title"] || "직군명",
+            company: row["company"] || "사람인시니어",
+            location: row["location"] || "",
+            employment_type: row["employment_type"] || "",
+            industry: row["industry"] || "",
+            education: row["education"] || "",
+            experience: row["experience"] || "",
+            salary: row["salary"] || "",
+            period: `${formatDate(row["posting"])} ~ ${formatDate(row["expiration"])}`,
+            url: row["url"] || "",
+            source: "사람인",
+          }));
+        setAppliedSenior(data);
+      });
+  }, []);
+
+  const formatDate = (str = "") => {
+    const match = String(str).match(/\d{4}-\d{2}-\d{2}/);
+    return match ? match[0] : str;
+  };
+
+  const handleDetailClick = (job) => openModal(job);
+
   return (
     <>
     <Menubar />
@@ -107,22 +152,24 @@ export const MyPage = () => {
         </div>
         </> )}
         {selectedTab === "접수 내역 조회" && (
-            <div className='MyPageResume-UI'>
-            {dummyResumes.map((resume) => (
-            <div key={resume.id} className="overlap-wrapper">
-                <div className="overlap-group-2">
-                <div className="text-wrapper-10">{resume.position}</div>
-                <div className="text-wrapper-11">지역 : {resume.region}</div>
-                <div className="text-wrapper-12">생성일자 : {resume.createdAt}</div>
-                <div className="overlap-group-3">
-                    <div className="text-wrapper-13">자세히 보기</div>
-                </div>
-                <div className="text-wrapper-14">{resume.extra}</div>
-                </div>
-            </div>
-            ))}
-            </div>
+          <>
+            <div className='overlap-overlapper1'> {/* Recommend.css에 있는 grid 레이아웃 */}
+              {appliedKorea.map(job => (
+                <JobCard key={job.id} job={job} onDetail={handleDetailClick} />
+              ))}
+              {appliedSenior.map(job => (
+                <JobCard key={job.id} job={job} onDetail={handleDetailClick} />
+              ))}
+            </div>  
+          </>
         )}
+        {isModalOpen && selectedJob && (
+                  <div className="modal-overlay" onClick={closeModal}>
+                    <div onClick={(e) => e.stopPropagation()}>
+                      <RecommendModal job={selectedJob} onClose={closeModal} />
+                    </div>
+                  </div>
+                )}
         </div>
       </div>
     </div>

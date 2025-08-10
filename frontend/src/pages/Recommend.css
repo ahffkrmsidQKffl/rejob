@@ -46,9 +46,9 @@
   place-items: center;     
   padding: 30px 0;
   row-gap: 30px; /* 카드 세로 간격 */
-
 }
 
+/* jobcard css 시작 */
 .Recommend-UI .overlap {
   background-color: #ffffff;
   border-radius: 20px;
@@ -79,28 +79,6 @@
   font-size: 25px; /* 기본 30px보다 줄임 */
 }
 
-.Recommend-UI .div-wrapper {
-  background-color: #2a52be;
-  border-radius: 10px;
-  height: 50px;
-  width: 270px;
-  display: flex;
-  align-self: center;
-  justify-content: center;
-  align-items: center;
-  margin-top: auto;
-}
-
-.Recommend-UI .text-wrapper-2 {
-  color: #ffffff;
-  font-family: "Noto Sans", Helvetica;
-  font-size: 19px;
-  font-weight: 600;
-  letter-spacing: 0;
-  line-height: 30px;
-  white-space: nowrap;
-}
-
 .Recommend-UI .p {
   color: #545454;
   font-family: "Noto Sans", Helvetica;
@@ -125,17 +103,6 @@
   max-width: 280px; /* 또는 원하는 px 값 */
 }
 
-.Recommend-UI .text-wrapper-4 {
-  color: #333333;
-  font-family: "Noto Sans", Helvetica;
-  font-size: 28px;
-  font-weight: 600;
-  letter-spacing: 0;
-  line-height: 30px;
-  white-space: nowrap;
-  margin-top: 25px;
-}
-
 .Recommend-UI .overlap-5 {
   background-color: #ffd95a;
   border-radius: 10px;
@@ -143,6 +110,18 @@
   width: 270px;
   align-self: center;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
+}
+
+.Recommend-UI .div-wrapper {
+  background-color: #2a52be;
+  border-radius: 10px;
+  height: 50px;
+  width: 270px;
+  display: flex;
+  align-self: center;
   justify-content: center;
   align-items: center;
   margin-top: auto;
@@ -156,6 +135,28 @@
   letter-spacing: 0;
   line-height: 30px;
   white-space: nowrap;
+}
+
+.Recommend-UI .text-wrapper-2 {
+  color: #ffffff;
+  font-family: "Noto Sans", Helvetica;
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 30px;
+  white-space: nowrap;
+}
+/* jobcard css 끝 */
+
+.Recommend-UI .text-wrapper-4 {
+  color: #333333;
+  font-family: "Noto Sans", Helvetica;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 30px;
+  white-space: nowrap;
+  margin-top: 25px;
 }
 
 .Recommend-UI .overlap-4 {
