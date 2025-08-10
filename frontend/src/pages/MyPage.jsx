@@ -48,12 +48,6 @@ export const MyPage = () => {
           <div className="text-wrapper">개인정보</div>
         </div>
 
-        {/* <div className={`overlap${selectedTab === "이력서 보관함" ? "-group" : ""}`}
-        onClick={() => setSelectedTab("이력서 보관함")}
-        style={{ cursor: "pointer" }}>
-          <div className="text-wrapper-2">이력서 보관함</div>
-        </div> */}
-
         <div className={`overlap${selectedTab === "접수 내역 조회" ? "-group" : ""}`}
         onClick={() => setSelectedTab("접수 내역 조회")}
         style={{ cursor: "pointer" }}>
@@ -112,23 +106,6 @@ export const MyPage = () => {
           <div className="text-wrapper-15">수정하기</div>
         </div>
         </> )}
-        {selectedTab === "이력서 보관함" && (
-            <div className='MyPageResume-UI'>
-            {dummyResumes.map((resume) => (
-            <div key={resume.id} className="overlap-wrapper">
-                <div className="overlap-group-2">
-                <div className="text-wrapper-10">{resume.position}</div>
-                <div className="text-wrapper-11">지역 : {resume.region}</div>
-                <div className="text-wrapper-12">생성일자 : {resume.createdAt}</div>
-                <div className="overlap-group-3">
-                    <div className="text-wrapper-13">자세히 보기</div>
-                </div>
-                <div className="text-wrapper-14">{resume.extra}</div>
-                </div>
-            </div>
-            ))}
-            </div>
-        )}
         {selectedTab === "접수 내역 조회" && (
             <div className='MyPageResume-UI'>
             {dummyResumes.map((resume) => (
